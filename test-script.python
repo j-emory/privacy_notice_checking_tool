@@ -1,0 +1,13 @@
+import re
+
+def check_privacy_notice(notice, keywords):
+    keywords_found = []
+    for keyword in keywords:
+        if re.search(keyword, notice, re.IGNORECASE):
+            keywords_found.append(keyword)
+    return keywords_found
+
+keywords = ["personal data", "data collection", "data storage", "data sharing", "data security", "data retention"]
+privacy_notice = "This privacy notice outlines how we collect, store, and share your personal data. We take data security seriously and retain your data for a limited time."
+found_keywords = check_privacy_notice(privacy_notice, keywords)
+print("Found keywords:", found_keywords)
